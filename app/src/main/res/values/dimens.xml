@@ -4,8 +4,12 @@
     <dimen name="screen_margin_h">48dp</dimen>
     <dimen name="screen_margin_v">27dp</dimen>
 
-    <!-- Cartões de aplicativo -->
+    <!-- Altura da faixa do topo, onde aparece o logo/stick/controle do papel de parede.
+         A grade de apps começa logo abaixo (≈44% da altura da tela). -->
+    <dimen name="hero_height">208dp</dimen>
+
+    <!-- Cartões de aplicativo (2 linhas visíveis em 1280x720) -->
     <dimen name="card_min_width">160dp</dimen>
-    <dimen name="card_height">140dp</dimen>
-    <dimen name="icon_size">72dp</dimen>
+    <dimen name="card_height">108dp</dimen>
+    <dimen name="icon_size">56dp</dimen>
 </resources>

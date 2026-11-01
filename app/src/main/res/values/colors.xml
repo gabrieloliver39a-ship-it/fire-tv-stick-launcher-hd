@@ -3,9 +3,13 @@
     <color name="black">#FF000000</color>
     <color name="bg_glow">#FF0A1B33</color>
     <color name="accent">#FF2E9BFF</color>
-    <color name="card">#FF0D1117</color>
-    <color name="card_focused">#FF0F2A47</color>
-    <color name="card_stroke">#FF16324F</color>
+    <color name="accent_orange">#FFFF8A1F</color>
+
+    <!-- Cartões translúcidos: deixam o papel de parede aparecer por trás -->
+    <color name="card">#C70D1117</color>
+    <color name="card_focused">#E6502D14</color>
+    <color name="card_stroke">#8C3A78C0</color>
+
     <color name="text_primary">#FFFFFFFF</color>
     <color name="text_secondary">#FF8FB4D9</color>
 </resources>

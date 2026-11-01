@@ -2,9 +2,10 @@
 
 Tela inicial personalizada para o **Amazon Fire TV Stick HD** (Fire OS 8, baseado no Android 11 / API 30).
 
-- Fundo preto com detalhes em azul, visual escuro e moderno
-- Ícones grandes em grade organizada (colunas calculadas conforme a tela; pensado para 1280x720)
-- Relógio (HH:mm) e data no topo, no idioma do aparelho
+- Papel de parede próprio (logo Fire TV Stick, stick e controle, luzes azul e laranja) sobre fundo azul-marinho escuro
+- Ícones em grade organizada, 2 linhas visíveis, em cartões translúcidos (colunas calculadas conforme a tela; pensado para 1280x720)
+- Relógio (HH:mm) e data no canto superior direito, no idioma do aparelho
+- Foco nos cartões com borda laranja e leve zoom
 - Atalhos para todos os aplicativos instalados (apps de TV primeiro, depois os demais, em ordem alfabética)
 - Navegação só com o controle: **setas** movem o foco, **OK** abre o app, **segurar OK** abre as informações do app
 - A lista se atualiza sozinha quando você instala, remove ou atualiza um app
@@ -22,7 +23,17 @@ app/src/main/
 │   ├── AppRepository.kt             # lê os apps instalados
 │   └── AppInfo.kt
 └── res/                             # layouts, cores, banner e ícone
+    └── drawable-nodpi/wallpaper.jpg # papel de parede (1280x720)
 ```
+
+## Trocar o papel de parede
+
+Substitua o arquivo `app/src/main/res/drawable-nodpi/wallpaper.jpg` por outra imagem **16:9** (1280x720 ou 1920x1080), mantendo o mesmo nome, e faça commit. Dicas:
+
+- Deixe a **metade de cima** com o visual (logo, produto, luzes) e a **metade de baixo escura e lisa**, porque é onde ficam os apps.
+- Evite desenhar relógio ou atalhos na imagem: o app já mostra os reais.
+- Prefira JPG com até uns 300 KB; a Fire TV Stick HD tem pouca memória.
+- Se mudar a altura da área do topo, ajuste `hero_height` em `app/src/main/res/values/dimens.xml`.
 
 > **Sem Android Studio ou com computador fraco?** Veja o [GUIA-GITHUB-ACTIONS.md](GUIA-GITHUB-ACTIONS.md): o GitHub compila o APK na nuvem pelo navegador, usando o workflow em `.github/workflows/android.yml`.
 

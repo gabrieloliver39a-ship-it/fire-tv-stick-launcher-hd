@@ -1,101 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_main"
     android:clipChildren="false"
-    android:clipToPadding="false"
-    android:orientation="vertical"
-    android:paddingStart="@dimen/screen_margin_h"
-    android:paddingTop="@dimen/screen_margin_v"
-    android:paddingEnd="@dimen/screen_margin_h"
-    android:paddingBottom="@dimen/screen_margin_v">
+    android:clipToPadding="false">
 
-    <!-- Cabeçalho: relógio e data -->
+    <!-- Papel de parede (apenas decoração: não recebe foco nem cliques) -->
+    <ImageView
+        android:id="@+id/wallpaper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="false"
+        android:contentDescription="@null"
+        android:focusable="false"
+        android:importantForAccessibility="no"
+        android:scaleType="centerCrop"
+        android:src="@drawable/wallpaper" />
+
+    <!-- Conteúdo por cima do papel de parede -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextClock
-                android:id="@+id/time_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-light"
-                android:format12Hour="HH:mm"
-                android:format24Hour="HH:mm"
-                android:includeFontPadding="false"
-                android:textColor="@color/text_primary"
-                android:textSize="52sp" />
-
-            <TextClock
-                android:id="@+id/date_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:fontFamily="sans-serif"
-                android:textColor="@color/text_secondary"
-                android:textSize="20sp" />
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:text="@string/app_name"
-            android:textColor="@color/accent"
-            android:textSize="18sp" />
-    </LinearLayout>
-
-    <!-- Linha de destaque azul -->
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/divider_accent" />
-
-    <!-- Grade de aplicativos -->
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="match_parent"
         android:clipChildren="false"
-        android:clipToPadding="false">
+        android:clipToPadding="false"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/screen_margin_h"
+        android:paddingTop="@dimen/screen_margin_v"
+        android:paddingEnd="@dimen/screen_margin_h"
+        android:paddingBottom="@dimen/screen_margin_v">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/app_grid"
+        <!-- Cabeçalho: ocupa a área do logo/stick/controle do papel de parede;
+             relógio e data ficam no canto superior direito -->
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="@dimen/hero_height">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|end"
+                android:gravity="end"
+                android:orientation="vertical">
+
+                <TextClock
+                    android:id="@+id/time_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:format12Hour="HH:mm"
+                    android:format24Hour="HH:mm"
+                    android:includeFontPadding="false"
+                    android:shadowColor="#CC000000"
+                    android:shadowRadius="8"
+                    android:textColor="@color/text_primary"
+                    android:textSize="44sp" />
+
+                <TextClock
+                    android:id="@+id/date_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="sans-serif"
+                    android:shadowColor="#CC000000"
+                    android:shadowRadius="8"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <!-- Grade de aplicativos (mesmos ids e comportamento de antes) -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:clipChildren="false"
-            android:clipToPadding="false"
-            android:overScrollMode="never" />
+            android:clipToPadding="false">
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/app_grid"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:overScrollMode="never" />
+
+            <TextView
+                android:id="@+id/empty_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/empty_apps"
+                android:textColor="@color/text_secondary"
+                android:textSize="22sp"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <!-- Dica de controle remoto -->
         <TextView
-            android:id="@+id/empty_view"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/empty_apps"
+            android:layout_marginTop="2dp"
+            android:gravity="center"
+            android:shadowColor="#CC000000"
+            android:shadowRadius="6"
+            android:text="@string/hint_navigation"
             android:textColor="@color/text_secondary"
-            android:textSize="22sp"
-            android:visibility="gone" />
-    </FrameLayout>
-
-    <!-- Dica de controle remoto -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:gravity="center"
-        android:text="@string/hint_navigation"
-        android:textColor="@color/text_secondary"
-        android:textSize="14sp" />
-</LinearLayout>
+            android:textSize="12sp" />
+    </LinearLayout>
+</FrameLayout>
