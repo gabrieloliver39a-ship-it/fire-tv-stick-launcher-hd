@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Fire TV Stick Launcher HD</string>
+    <string name="empty_apps">Nenhum aplicativo encontrado</string>
+    <string name="hint_navigation">Setas: navegar  •  OK: abrir  •  Segurar OK: informações do app</string>
+    <string name="error_open_app">Não foi possível abrir este aplicativo</string>
+    <string name="error_app_info">Não foi possível abrir as informações do app</string>
+</resources>

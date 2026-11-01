@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Margens de área segura para TV (evita corte por overscan) -->
+    <dimen name="screen_margin_h">48dp</dimen>
+    <dimen name="screen_margin_v">27dp</dimen>
+
+    <!-- Cartões de aplicativo -->
+    <dimen name="card_min_width">160dp</dimen>
+    <dimen name="card_height">140dp</dimen>
+    <dimen name="icon_size">72dp</dimen>
+</resources>

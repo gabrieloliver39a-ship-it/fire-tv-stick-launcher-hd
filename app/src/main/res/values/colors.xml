@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="bg_glow">#FF0A1B33</color>
+    <color name="accent">#FF2E9BFF</color>
+    <color name="card">#FF0D1117</color>
+    <color name="card_focused">#FF0F2A47</color>
+    <color name="card_stroke">#FF16324F</color>
+    <color name="text_primary">#FFFFFFFF</color>
+    <color name="text_secondary">#FF8FB4D9</color>
+</resources>
