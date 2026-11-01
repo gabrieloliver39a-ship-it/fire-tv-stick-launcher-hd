@@ -9,16 +9,28 @@ android {
 
     defaultConfig {
         applicationId = "com.firetvlauncher.hd"
-        // Fire OS 7 = Android 9 (API 28); Fire OS 8 = Android 11 (API 30)
         minSdk = 28
         targetSdk = 30
-        versionCode = 1
-        versionName = "1.0.0"
+        versionCode = 2
+        versionName = "1.0.1"
+    }
+
+    signingConfigs {
+        create("release") {
+            storeFile = file("release-key.jks")
+            storePassword = System.getenv("KEYSTORE_PASSWORD")
+            keyAlias = System.getenv("KEY_ALIAS")
+            keyPassword = System.getenv("KEY_PASSWORD")
+        }
     }
 
     buildTypes {
+        debug {
+            signingConfig = signingConfigs.getByName("release")
+        }
         release {
             isMinifyEnabled = false
+            signingConfig = signingConfigs.getByName("release")
         }
     }
 
@@ -32,7 +44,6 @@ android {
     }
 
     lint {
-        // targetSdk 30 é proposital (Fire OS 8); sem isso o lint reclama de SDK "antigo".
         abortOnError = false
         checkReleaseBuilds = false
     }
